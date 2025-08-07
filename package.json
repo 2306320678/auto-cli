@@ -1,14 +1,22 @@
 {
   "name": "auto-cli",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "auto-cli 脚手架",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c rollup.config.js --bundleConfigAsCjw"
   },
-  "keywords": [],
+  "keywords": ["Vite","Vue3", "TypeScript", "Element-plus"],
   "author": "",
+  "bin": {
+    "auto-cli": "bin/index.js"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "README.md"
+  ],
   "license": "ISC",
   "dependencies": {
     "auto-cli": "link:",
