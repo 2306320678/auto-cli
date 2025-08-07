@@ -1,5 +1,5 @@
 {
-  "name": "auto-cli",
+  "name": "zyb-auto-cli",
   "version": "0.1.1",
   "description": "auto-cli 脚手架",
   "main": "index.js",
