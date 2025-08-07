@@ -1,13 +1,18 @@
 {
   "name": "auto-cli",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "auto-cli 脚手架",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c rollup.config.js --bundleConfigAsCjw"
   },
-  "keywords": ["Vite","Vue3", "TypeScript", "Element-plus"],
+  "keywords": [
+    "Vite",
+    "Vue3",
+    "TypeScript",
+    "Element-plus"
+  ],
   "author": "",
   "bin": {
     "auto-cli": "bin/index.js"
