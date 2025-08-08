@@ -33,7 +33,7 @@ export const clone = async (
     console.log();
     console.log(chalk.green('下载成功'));
     console.log(chalk.blue('==============================='));
-    console.log(chalk.blue('=========欢迎使用auto-cli======='));
+    console.log(chalk.blue('=========欢迎使用maple-cli======='));
     console.log(chalk.blue('==============================='));
     console.log();
     console.log();

@@ -7,7 +7,7 @@ settings:
 importers:
   .:
     dependencies:
-      zyb-cli:
+      maple-cli:
         specifier: 'link:'
         version: 'link:'
       typescript:
