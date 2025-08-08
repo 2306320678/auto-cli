@@ -1,6 +1,6 @@
 {
   "name": "maple-cli",
-  "version": "0.0.1",
+  "version": "0.2.1",
   "description": "maple-cli 脚手架",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "maple-cli": "link:",
+    "maple-cli": "git@github.com:2306320678/auto-cli.git",
     "typescript": "^5.9.2"
   },
   "devDependencies": {
