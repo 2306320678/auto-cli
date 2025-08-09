@@ -1,6 +1,6 @@
 {
   "name": "maple-cli",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "maple-cli 脚手架",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "TypeScript",
     "Element-plus"
   ],
-  "author": "",
+  "author": "zyb",
   "bin": {
     "maple-cli": "bin/index.js"
   },
@@ -23,10 +23,6 @@
     "README.md"
   ],
   "license": "ISC",
-  "dependencies": {
-    "maple-cli": "git@github.com:2306320678/auto-cli.git",
-    "typescript": "^5.9.2"
-  },
   "devDependencies": {
     "@inquirer/prompts": "^7.8.0",
     "@rollup/plugin-commonjs": "^28.0.6",
