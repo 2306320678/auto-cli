@@ -3,6 +3,9 @@ import { clone } from '../utils/clone';
 import path from 'path';
 import fs from 'fs-extra';
 import chalk from 'chalk';
+import { name, version } from '../../package.json';
+import axios, { type AxiosResponse } from 'axios';
+import { gt } from 'lodash';
 export interface TemplateInfo {
   name: string; // 模板名称
   downloadUrl: string; // 模板下载地址
@@ -42,6 +45,37 @@ export const isOverwrite = async (fileName: string) => {
   });
 };
 
+export const getNpmInfo = async (name: string) => {
+  console.log(`正在获取${name}信息...`);
+  const npmUrl = `https://registry.npmjs.org/${name}`;
+  let res = {};
+  try {
+    res = await axios.get(npmUrl);
+  } catch (error) {
+    console.log(error);
+  }
+  return res;
+};
+
+export const getNpmLastVersion = async (name: string) => {
+  const { data } = (await getNpmInfo(name)) as AxiosResponse;  
+  return data['dist-tags'].latest;
+};
+
+export const checkVersion = async (name: string, version: string) => {
+  const lastVerson = await getNpmLastVersion(name);
+  const need = gt(lastVerson, version);
+  if (need) {
+    console.warn(`当前版本${version}过低,请升级到${lastVerson}`);
+    console.log(
+      `请执行${chalk.green(
+        'npm install -g maple-cli@lastest'
+      )}更新版本, 或者使用${chalk.green('maple update')}更新`
+    );
+  }
+  return need;
+};
+
 export async function create(projectName?: string) {
   // 初始化模板列表
   const templateList = Array.from(tempaltes).map(
@@ -56,8 +90,6 @@ export async function create(projectName?: string) {
   );
 
   if (!projectName) {
-    console.log(chalk.green('123456'));
-
     projectName = await input({ message: '请输入项目名称' });
   }
 
@@ -75,6 +107,9 @@ export async function create(projectName?: string) {
       return; // 不覆盖直接结束
     }
   }
+
+  // 检测版本更新
+  await checkVersion(name, version);
 
   const templateName = await select({
     message: '请选择模板',
