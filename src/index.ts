@@ -4,10 +4,15 @@
 import { Command } from 'commander';
 import { version } from '../package.json';
 import { create } from './command/create';
+import { update } from './command/update';
 import { log } from 'console';
 
 const program = new Command('maple-cli');
 program.version(version, '-v --version');
+
+program.command('update').description('更新脚手架maple-cli').action(async () => {
+  await update();
+});
 
 program
   .command('create')
@@ -15,7 +20,6 @@ program
   .argument('[name]', '项目名称')
   .action(async (dirName) => {
     create(dirName);
-    // console.log('123');
 
     // if (dirName) {
     //   create(dirName)

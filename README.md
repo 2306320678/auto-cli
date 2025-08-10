@@ -16,6 +16,11 @@
 npm install maple-cli -g
 ```
 
+# 更新脚手架到最新版本
+```bash
+maple-cli update
+```
+
 ## 使用
 
 ```bash
